@@ -8,9 +8,11 @@ function App() {
   const [win , setWin] = useState(false)
   const [currPlayer,setCurrPlayer] = useState('x')
   const [table, setTable] = useState(setGame())
+  const [draw , setDraw] = useState(false)
 
   useEffect(() => {
     checkForWin()
+    checkForDraw()
   },[table])
 
   function setGame(){
@@ -34,6 +36,7 @@ function App() {
         return 'x'
       }
     })
+
   }
   
   function handleSqareClick(sqare){
@@ -81,12 +84,27 @@ function App() {
   function handleBtnClick(){
     setTable(setGame())
     setWin(false)
+    setDraw(false)
+  }
+
+  function checkForDraw(){
+    let flag = true
+    for (let i = 0; i < table.length; i++) {
+      if(!table[i].value && !win){
+        flag=false
+      }
+    }
+
+    if(flag){
+      playerSwap()
+      setDraw(flag)
+    }
   }
 
   return (
     <div className='display'>
       {win && <Confetti gravity={0.7}/>}
-      {win ? <div className='notification'>{currPlayer} won !</div> : <div className='notification'>Turn of player {currPlayer}</div>}
+      {(win || draw) ? (win ? <div className='notification'>{currPlayer} won !</div> : <div className='notification'>DRAW !</div>) : <div className='notification'>Turn of player {currPlayer}</div>}
       <div className='container'>
         {table.map((element) => {
           return (
@@ -94,7 +112,7 @@ function App() {
           )
         })}
       </div>
-      {win && <button className='button' onClick={handleBtnClick}>PLAY AGAIN</button>}
+      {(win || draw) && <button className='button' onClick={handleBtnClick}>PLAY AGAIN</button>}
     </div>
   )
 }
