@@ -1,0 +1,72 @@
+.sqare{
+  border: 6px solid #80bbf6;
+  border-radius: 2px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 2px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: rgb(0, 0, 129);
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.38);
+  transition: linear 50ms;
+}
+
+.sqare:hover{
+  margin: 4px;
+}
+
+.container{
+  width: 350px;
+  height: 350px;
+  display: grid;
+	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  background-color: rgb(217, 253, 253);
+}
+
+.display{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.button{
+  padding:14px;
+  background-color: #80bbf6;
+  color: rgb(0, 0, 129);
+  border-radius: 10px;
+  border: 1px solid rgb(190, 189, 189);
+  justify-self: center;
+  margin: 10px;
+  position: absolute;
+  bottom: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-size: 20px;
+
+  transition: linear 200ms;
+}
+
+.button:hover{
+  padding: 18px;
+  bottom: 16px;
+}
+
+.notification{
+  margin: 20px;
+  text-transform: uppercase;
+  font-size: 28px;
+  color: rgb(0, 0, 129);
+  font-weight: bold;
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.38);
+  position: absolute;
+  top: 20px;
+  
+}
